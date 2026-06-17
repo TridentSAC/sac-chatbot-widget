@@ -1,0 +1,10 @@
+{
+  "id": "com.trident.sac.chatbot",
+  "version": "1.0.0",
+  "name": "SAC AI Assistant",
+  "newInstancePrefix": "Chatbot",
+  "embeddingTypes": [{ "name": "canvas-widget" }],
+  "properties": {},
+  "methods": {},
+  "events": {}
+}

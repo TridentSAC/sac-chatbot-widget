@@ -1,5 +1,5 @@
 const CAI_TOKEN = "4905d893aff7ca532cf7f9d5b3fe06df";
-const CAI_URL = "https://api.cai.tools.sap/train/v2/request";
+const CAI_URL = "https://api.cai.tools.sap/build/v1/dialog";
 
 class SACChatbot extends HTMLElement {
   connectedCallback() {
@@ -18,7 +18,7 @@ class SACChatbot extends HTMLElement {
         <!-- Chat Panel -->
         <div id="sac-chat-panel" style="
           display:none; position:absolute; bottom:55px; right:10px;
-          width:620px; background:white; border:1px solid #ccc;
+          width:320px; background:white; border:1px solid #ccc;
           border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);
           z-index:9; overflow:hidden;">
 
@@ -29,14 +29,14 @@ class SACChatbot extends HTMLElement {
 
           <!-- Chat Log -->
           <div id="sac-chat-log" style="
-            height:420px; overflow-y:auto; padding:10px;
+            height:220px; overflow-y:auto; padding:10px;
             background:#f9f9f9; font-size:13px;">
             <div style="color:#888; text-align:center; margin-top:60px;">Ask me about supply balance, inventory, or MRP data.</div>
           </div>
 
           <!-- Input -->
           <div style="display:flex; gap:5px; padding:8px; border-top:1px solid #eee;">
-            <input id="sac-user-input" type="text" placeholder="Ask about Real Time MRP Overview data..."
+            <input id="sac-user-input" type="text" placeholder="Ask about MRP data..."
               style="flex:1; padding:7px; border:1px solid #ccc; border-radius:4px; font-size:13px;"/>
             <button id="sac-send-btn" style="
               padding:7px 14px; background:#0070F2; color:white;
@@ -78,11 +78,11 @@ class SACChatbot extends HTMLElement {
         'Authorization': `Token ${CAI_TOKEN}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ text: text })
+      body: JSON.stringify({ message: { type: 'text', content: text }, conversation_id: 'sac-mrp-session' })
     })
     .then(res => res.json())
     .then(data => {
-      const reply = data.results?.messages?.[0]?.content || "I didn't understand that. Try asking about supply balance or inventory.";
+      const reply = data.results?.messages?.[0]?.content || data.results?.nlp?.source || "I didn't understand that. Try asking about supply balance or inventory.";
       log.innerHTML += `<div style="text-align:left; margin:4px 0;"><span style="background:#e8f0fe; color:#333; padding:4px 8px; border-radius:10px; display:inline-block;">${reply}</span></div>`;
       log.scrollTop = log.scrollHeight;
     })

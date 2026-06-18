@@ -18,7 +18,7 @@ class SACChatbot extends HTMLElement {
         <!-- Chat Panel -->
         <div id="sac-chat-panel" style="
           display:none; position:absolute; bottom:55px; right:10px;
-          width:420px; background:white; border:1px solid #ccc;
+          width:620px; background:white; border:1px solid #ccc;
           border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2);
           z-index:9; overflow:hidden;">
 

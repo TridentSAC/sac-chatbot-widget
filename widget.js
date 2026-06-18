@@ -29,14 +29,14 @@ class SACChatbot extends HTMLElement {
 
           <!-- Chat Log -->
           <div id="sac-chat-log" style="
-            height:220px; overflow-y:auto; padding:10px;
+            height:420px; overflow-y:auto; padding:10px;
             background:#f9f9f9; font-size:13px;">
             <div style="color:#888; text-align:center; margin-top:60px;">Ask me about supply balance, inventory, or MRP data.</div>
           </div>
 
           <!-- Input -->
           <div style="display:flex; gap:5px; padding:8px; border-top:1px solid #eee;">
-            <input id="sac-user-input" type="text" placeholder="Ask about MRP data..."
+            <input id="sac-user-input" type="text" placeholder="Ask about Real Time MRP Overview data..."
               style="flex:1; padding:7px; border:1px solid #ccc; border-radius:4px; font-size:13px;"/>
             <button id="sac-send-btn" style="
               padding:7px 14px; background:#0070F2; color:white;

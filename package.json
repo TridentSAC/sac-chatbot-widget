@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "name": "SAC AI Assistant",
   "newInstancePrefix": "Chatbot",
-  "embeddingTypes": [{ "name": "canvas-widget" }],
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-trident-sac-chatbot",
+      "url": "https://tridentsac.github.io/sac-chatbot-widget/widget.js",
+      "integrity": "",
+      "ignoreIntegrity": true
+    }
+  ],
   "properties": {},
   "methods": {},
   "events": {}
